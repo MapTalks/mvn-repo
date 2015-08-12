@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <groupId>org.maptalks</groupId>
+  <artifactId>maptalks-geojson</artifactId>
+  <versioning>
+    <release>1.0.0-snapshot</release>
+    <versions>
+      <version>1.0.0-snapshot</version>
+    </versions>
+    <lastUpdated>20150812132649</lastUpdated>
+  </versioning>
+</metadata>
