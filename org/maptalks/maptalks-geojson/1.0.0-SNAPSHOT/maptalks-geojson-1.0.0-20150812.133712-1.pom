@@ -12,7 +12,7 @@
 
     <groupId>org.maptalks</groupId>
     <artifactId>maptalks-geojson</artifactId>
-    <version>1.0.0-snapshot</version>
+    <version>${project.release.version}</version>
     <dependencies>
         <dependency>
             <groupId>com.vividsolutions</groupId>
@@ -37,7 +37,17 @@
     <properties>
         <mvn-repo.path>${project.build.directory}/../../mvn-repo</mvn-repo.path>
         <github.global.server>github</github.global.server>
+        <project.release.version>1.0.0-SNAPSHOT</project.release.version>
     </properties>
+
+    <profiles>
+        <profile>
+            <id>product</id>
+            <properties>
+                <project.release.version>1.0.0</project.release.version>
+            </properties>
+        </profile>
+    </profiles>
 
     <build>
 
