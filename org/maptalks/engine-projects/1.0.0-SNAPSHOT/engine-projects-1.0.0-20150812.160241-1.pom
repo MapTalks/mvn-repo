@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>org.maptalks</groupId>
+  <artifactId>engine-projects</artifactId>
+  <packaging>pom</packaging>
+  <version>1.0.0-SNAPSHOT</version>
+  <name>engine-projects</name>
+
+  <properties>
+    <mvn-repo.path>${project.basedir}/../MapTalks/mvn-repo</mvn-repo.path>
+
+    <!-- test libraries -->
+    <junit.version>4.11</junit.version>
+
+    <!-- logging libraries -->
+    <slf4j.version>1.7.5</slf4j.version>
+    <log4j.version>1.2.17</log4j.version>
+
+    <!-- 3rd libraries -->
+    <jts.version>1.13</jts.version>
+    <jts.geojson.version>0.5.0</jts.geojson.version>
+    <fastjson.version>1.2.6</fastjson.version>
+    <lite.version>20110918</lite.version>
+    <druid.version>1.0.14</druid.version>
+    <ehcache.version>2.10.0</ehcache.version>
+
+    <!-- cache  (ehcache, redis, memcached)-->
+    <ehcache.version>2.10.0</ehcache.version>
+    <jedis.version>2.7.3</jedis.version>
+    <memcached.client.version>3.0.2</memcached.client.version>
+
+    <!-- database (SQL, Non-SQL) -->
+    <postgresql.connector.version>9.4-1201-jdbc41</postgresql.connector.version>
+    <postgis.version>1.3.3</postgis.version>
+    <mysql.connector.version>5.1.35</mysql.connector.version>
+    <jtds.version>1.3.1</jtds.version>
+    <oracle.jdbc.version>11.2.0.1.0</oracle.jdbc.version>
+    <oracle.i18n.version>11.2.0.4.0-Production__Build-11</oracle.i18n.version>
+    <oracle.spatial.api.version>unknown</oracle.spatial.api.version>
+    <oracle.spatial.util.version>unknown</oracle.spatial.util.version>
+    <db2.jdbc3.version>3.63.123</db2.jdbc3.version>
+    <db2.jdbc4.version>4.13.127</db2.jdbc4.version>
+    <db2.jdbclicense.version>1.4.2</db2.jdbclicense.version>
+    <mongo.driver.version>3.0.2</mongo.driver.version>
+    <sqlite.driver.version>3.8.10.1</sqlite.driver.version>
+
+    <!-- webserver -->
+    <jetty.version>9.0.4.v20130625</jetty.version>
+    <servlet.version>3.0.1</servlet.version>
+    <servletrest.version>0.3</servletrest.version>
+    <servletrest.utils.version>0.2</servletrest.utils.version>
+
+    <!-- build properties -->
+    <jdk.version>1.8</jdk.version>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+  <modules>
+    <module>engine-common-core</module>
+    <module>engine-common-dao</module>
+    <module>engine-common-draw2d</module>
+    <module>engine-common-module</module>
+    <module>engine-manage</module>
+    <module>engine-tile</module>
+    <module>engine-rest</module>
+    <module>engine-dynamic</module>
+    <module>engine-service</module>
+    <module>engine-snap</module>
+    <module>engine-front</module>
+    <module>engine-server</module>
+      <module>engine-confidential</module>
+      <!--<module>../MapTalks/MapTalks-GeoJSON</module>-->
+  </modules>
+
+  <repositories>
+
+    <repository>
+      <id>MapTalks-mvn-repo</id>
+        <name>MapTalks Maven Repository</name>
+      <url>https://raw.github.com/MapTalks/mvn-repo/releases/</url>
+      <snapshots>
+        <enabled>true</enabled>
+        <updatePolicy>always</updatePolicy>
+      </snapshots>
+    </repository>
+
+    <!-- mvn repositories for geotools -->
+    <repository>
+      <id>maven2-repository.dev.java.net</id>
+      <name>Java.net repository</name>
+      <url>http://download.java.net/maven/2</url>
+    </repository>
+    <repository>
+      <id>osgeo</id>
+      <name>Open Source Geospatial Foundation Repository</name>
+      <url>http://download.osgeo.org/webdav/geotools/</url>
+    </repository>
+
+  </repositories>
+
+
+  <dependencies>
+
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
+      <version>${slf4j.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-log4j12</artifactId>
+      <version>${slf4j.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>log4j</groupId>
+      <artifactId>log4j</artifactId>
+      <version>${log4j.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>${junit.version}</version>
+      <scope>test</scope>
+    </dependency>
+
+  </dependencies>
+
+  <build>
+
+    <pluginManagement>
+      <plugins>
+
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>3.0</version>
+          <configuration>
+            <showWarnings>true</showWarnings>
+            <showDeprecation>true</showDeprecation>
+            <source>${jdk.version}</source>
+            <target>${jdk.version}</target>
+            <encoding>${project.build.sourceEncoding}</encoding>
+            <compilerArgument>-Xlint:unchecked</compilerArgument>
+          </configuration>
+        </plugin>
+
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-resources-plugin</artifactId>
+          <version>2.6</version>
+          <configuration>
+            <encoding>${project.build.sourceEncoding}</encoding>
+          </configuration>
+        </plugin>
+
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-jar-plugin</artifactId>
+          <version>2.4</version>
+        </plugin>
+
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-surefire-plugin</artifactId>
+          <version>2.18.1</version>
+        </plugin>
+
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-dependency-plugin</artifactId>
+          <version>2.4</version>
+        </plugin>
+
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-antrun-plugin</artifactId>
+          <version>1.8</version>
+        </plugin>
+
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-war-plugin</artifactId>
+          <version>2.3</version>
+        </plugin>
+
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-assembly-plugin</artifactId>
+          <version>2.5.5</version>
+        </plugin>
+
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-shade-plugin</artifactId>
+          <version>2.3</version>
+        </plugin>
+
+      </plugins>
+    </pluginManagement>
+
+    <plugins>
+        <plugin>
+            <artifactId>maven-deploy-plugin</artifactId>
+            <version>2.8.2</version>
+            <configuration>
+                <altDeploymentRepository>internal.repo::default::file://${mvn-repo.path}</altDeploymentRepository>
+                <url>file://${mvn-repo.path}</url>
+                <artifactId>engine-projects</artifactId>
+                <groupId>org.maptalks</groupId>
+                <packaging>pom</packaging>
+                <version>1.0.0-SNAPSHOT</version>
+                <file>pom.xml</file>
+            </configuration>
+        </plugin>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>exec-maven-plugin</artifactId>
+        <version>1.4.0</version>
+        <configuration>
+          <mainClass>Main</mainClass>
+          <arguments>
+            <argument></argument>
+            <argument></argument>
+          </arguments>
+        </configuration>
+      </plugin>
+    </plugins>
+
+  </build>
+
+  <profiles>
+  </profiles>
+
+  <distributionManagement>
+      <repository>
+          <id>internal.repo</id>
+          <name>Temporary Staging Repository</name>
+          <url>file://${mvn-repo.path}</url>
+      </repository>
+    <!--<repository>
+      <id>nexus-releases</id>
+      <name>Release Repository</name>
+      <url>http://10.0.0.9/nexus/content/repositories/releases/</url>
+    </repository>-->
+
+    <snapshotRepository>
+      <id>nexus-snapshots</id>
+      <name>Snapshot Repository</name>
+      <url>http://10.0.0.9/nexus/content/repositories/snapshots/</url>
+    </snapshotRepository>
+
+  </distributionManagement>
+
+</project>

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <metadata>
   <groupId>org.maptalks</groupId>
-  <artifactId>maptalks-geojson</artifactId>
+  <artifactId>engine-projects</artifactId>
   <versioning>
     <versions>
       <version>1.0.0-SNAPSHOT</version>
     </versions>
-    <lastUpdated>20150812154504</lastUpdated>
+    <lastUpdated>20150812160241</lastUpdated>
   </versioning>
 </metadata>
