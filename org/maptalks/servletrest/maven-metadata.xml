@@ -3,11 +3,12 @@
   <groupId>org.maptalks</groupId>
   <artifactId>servletrest</artifactId>
   <versioning>
-    <release>0.3.3</release>
+    <release>0.3.2-snapshot</release>
     <versions>
       <version>0.3.3</version>
       <version>0.3.4-SNAPSHOT</version>
+      <version>0.3.2-snapshot</version>
     </versions>
-    <lastUpdated>20150922081003</lastUpdated>
+    <lastUpdated>20150923142603</lastUpdated>
   </versioning>
 </metadata>
