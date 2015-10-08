@@ -3,11 +3,9 @@
   <groupId>org.maptalks</groupId>
   <artifactId>maptalks-geojson</artifactId>
   <versioning>
-    <release>1.0.0</release>
     <versions>
-      <version>1.0.0</version>
       <version>1.0.1-SNAPSHOT</version>
     </versions>
-    <lastUpdated>20151007122644</lastUpdated>
+    <lastUpdated>20151008060824</lastUpdated>
   </versioning>
 </metadata>
